@@ -14,7 +14,7 @@ function getCss(theme: string, fontSize: string) {
     }
     return `
     body {
-        background-image: url('https://yoshidev-media-images.s3.ap-northeast-1.amazonaws.com/ogp_d289de82e8.png');
+        background-image: url('https://yoshidev-media-images.s3.ap-northeast-1.amazonaws.com/ogp_8db23365cf.png');
         background-position: center;
         background-size: contain;
         text-align: center;
