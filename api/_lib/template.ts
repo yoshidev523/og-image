@@ -47,7 +47,6 @@ function getCss(theme: string, fontSize: string) {
         margin: 0 75px;
     }
 
-
     .spacer {
         margin: 150px;
     }
