@@ -118,8 +118,8 @@ const fileTypeOptions: DropdownOption[] = [
 ];
 
 const fontSizeOptions: DropdownOption[] = Array
-    .from({ length: 10 })
-    .map((_, i) => i * 25)
+    .from({ length: 20 })
+    .map((_, i) => i * 10)
     .filter(n => n > 0)
     .map(n => ({ text: n + 'px', value: n + 'px' }));
 
@@ -162,8 +162,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
     };
     const {
         fileType = 'png',
-        fontSize = '100px',
-        theme = 'light',
+        fontSize = '50px',
         md = true,
         text = '**Hello** World',
         category = 'web-develop',
@@ -177,7 +176,6 @@ const App = (_: any, state: AppState, setState: SetState) => {
     // const categoryOptions = imageLightOptions : imageDarkOptions;
     const url = new URL(window.location.origin);
     url.pathname = `${encodeURIComponent(text)}.${fileType}`;
-    url.searchParams.append('theme', theme);
     url.searchParams.append('md', mdValue);
     url.searchParams.append('fontSize', fontSize);
     url.searchParams.append('category', category);
@@ -226,12 +224,6 @@ const App = (_: any, state: AppState, setState: SetState) => {
                     input: H(Dropdown, {
                             options: categoryOptions,
                             value: category,
-                            // onchange: (val: string) =>  {
-                            //     let clone = [...category];
-                            //     clone[0] = val;
-                            //     const selected = categoryOptions.map(o => o.value).indexOf(val);
-                            //     setLoadingState({ category: val, selectedCategoryIndex: selected });
-                            // }
                             onchange: (val: string) => setLoadingState({ category: val, overrideUrl: url })
                         }),
 

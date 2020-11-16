@@ -7,7 +7,7 @@ const twOptions = { folder: 'svg', ext: '.svg' };
 const emojify = (text: string) => twemoji.parse(text, twOptions);
 
 function getCss(theme: string, fontSize: string) {
-    let foreground = 'black';
+    let foreground = '#333333';
 
     if (theme === 'dark') {
         foreground = 'white';
@@ -15,8 +15,6 @@ function getCss(theme: string, fontSize: string) {
     return `
     body {
         background-image: url('https://yoshidev-media-images.s3.ap-northeast-1.amazonaws.com/ogp_8db23365cf.png');
-        background-position: center;
-        background-size: contain;
         text-align: center;
         height: 100vh;
         display: flex;
@@ -48,7 +46,7 @@ function getCss(theme: string, fontSize: string) {
     }
 
     .spacer {
-        margin: 150px;
+        margin: 10px;
     }
 
     .emoji {
@@ -57,18 +55,26 @@ function getCss(theme: string, fontSize: string) {
         margin: 0 .05em 0 .1em;
         vertical-align: -0.1em;
     }
+    strong {
+        font-weight: 500
+    }
     
     .heading {
         font-family: YakuHanJP, 'Montserrat',  'M PLUS 1p', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: ${foreground};
-        line-height: 1.8;
+        line-height: 1.4;
+        padding-left: 100px;
+        padding-right: 100px;
+       
     }`;
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
     const { text, theme, md, fontSize, category } = parsedReq;
+    console.log(emojify(
+        md ? marked(text) : sanitizeHtml(text)))
     return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -96,7 +102,7 @@ export function getHtml(parsedReq: ParsedRequest) {
 </html>`;
 }
 
-function getImage(src: string, width ='auto', height = '225') {
+function getImage(src: string, width ='auto', height = '110') {
     return `<img
         class="logo"
         alt="Generated Image"
