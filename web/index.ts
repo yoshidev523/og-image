@@ -164,7 +164,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
         fileType = 'png',
         fontSize = '50px',
         md = true,
-        text = '**Hello** World',
+        text = '**Sketchでアイコンを作った話をする**',
         category = 'web-develop',
         showToast = false,
         messageToast = '',

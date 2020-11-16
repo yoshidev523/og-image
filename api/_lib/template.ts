@@ -7,7 +7,7 @@ const twOptions = { folder: 'svg', ext: '.svg' };
 const emojify = (text: string) => twemoji.parse(text, twOptions);
 
 function getCss(theme: string, fontSize: string) {
-    let foreground = '#333333';
+    let foreground = 'white';
 
     if (theme === 'dark') {
         foreground = 'white';
@@ -65,8 +65,8 @@ function getCss(theme: string, fontSize: string) {
         font-style: normal;
         color: ${foreground};
         line-height: 1.4;
-        padding-left: 100px;
-        padding-right: 100px;
+        padding-left: 200px;
+        padding-right: 200px;
        
     }`;
 }
