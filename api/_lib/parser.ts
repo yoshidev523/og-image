@@ -35,7 +35,7 @@ export function parseRequest(req: IncomingMessage) {
         theme: theme === 'dark' ? 'dark' : 'light',
         md: md === '1' || md === 'true',
         fontSize: fontSize || '96px',
-        category: category || 'web-develop' ,
+        category: category || 'default' ,
         background: decodeURIComponent('https://yoshidev-media-images.s3.ap-northeast-1.amazonaws.com/ogp_d289de82e8.png')
     };
     return parsedRequest;

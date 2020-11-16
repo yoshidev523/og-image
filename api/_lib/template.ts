@@ -73,8 +73,6 @@ function getCss(theme: string, fontSize: string) {
 
 export function getHtml(parsedReq: ParsedRequest) {
     const { text, theme, md, fontSize, category } = parsedReq;
-    console.log(emojify(
-        md ? marked(text) : sanitizeHtml(text)))
     return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -102,7 +100,7 @@ export function getHtml(parsedReq: ParsedRequest) {
 </html>`;
 }
 
-function getImage(src: string, width ='auto', height = '110') {
+function getImage(src: string, width ='auto', height = '100') {
     return `<img
         class="logo"
         alt="Generated Image"
@@ -123,7 +121,6 @@ function getImageSrc(category: string): string {
         case "daily":
             return 'https://yoshidev-media-images.s3.ap-northeast-1.amazonaws.com/daily_1eef885c36.svg'
         default:
-            return 'https://yoshidev-media-images.s3.ap-northeast-1.amazonaws.com/web_develop_f5adda320b.svg'
-
+            return 'https://yoshidev-media-images.s3.ap-northeast-1.amazonaws.com/default_ccf5951772.svg'
     }
 }
